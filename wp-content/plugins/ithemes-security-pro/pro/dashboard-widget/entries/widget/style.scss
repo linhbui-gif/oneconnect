@@ -1,0 +1,39 @@
+#itsec-dashboard-widget {
+    & .itsec-card-header {
+        cursor: auto;
+    }
+
+    & .inside {
+        margin-top: 0;
+        padding-bottom: 0;
+    }
+
+    // Fix WP's override of header styles in dashboard widgets.
+    &.postbox .inside {
+        & h2.itsec-card-header-title {
+            font-size: 1em;
+            margin: 0;
+            padding: 0;
+            font-weight: 600;
+            line-height: 1.4em;
+        }
+
+        & h3 {
+            margin: 1em 0;
+        }
+
+        & .itsec-empty-state-card h3 {
+            color: $dark-gray-500;
+        }
+    }
+
+    & .components-notice-list {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        & .components-notice {
+            margin: 0 11px 0 -12px;
+        }
+    }
+}

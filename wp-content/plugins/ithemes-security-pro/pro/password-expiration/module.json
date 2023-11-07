@@ -1,0 +1,38 @@
+{
+  "id": "password-expiration",
+  "status": "always-active",
+  "type": "recommended",
+  "title": "Password Age",
+  "description": "Strengthen the passwords on the site with automated password expiration.",
+  "password-requirements": {
+    "age": {
+      "user-group": true,
+      "settings": {
+        "type": "object",
+        "properties": {
+          "expire_max": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 120,
+            "title": "Maximum Password Age",
+            "description": "The maximum number of days a password may be kept before it is expired."
+          }
+        }
+      }
+    },
+    "force": {
+      "title": "Force Password Change"
+    }
+  },
+  "settings": {
+    "type": "object",
+    "properties": {
+      "expire_force": {
+        "type": "integer",
+        "minimum": 0,
+        "default": 0,
+        "readonly": true
+      }
+    }
+  }
+}

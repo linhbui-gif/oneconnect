@@ -1,0 +1,41 @@
+.itsec-import-wordpress-connect-header {
+    display: grid;
+    width: 100%;
+    grid-gap: .5rem;
+    grid-template-areas: "logo details spinner";
+    grid-template-columns: fit-content(80px) auto fit-content(40px);
+    align-items: center;
+
+    img {
+        grid-area: logo;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &__details {
+        grid-area: details;
+    }
+
+    h3 {
+        color: $main-blue;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__name {
+        display: block;
+        color: $dark-text;
+    }
+
+    &__description {
+        display: block;
+        color: $medium-text;
+        font-style: oblique;
+    }
+
+    .itsec-spinner {
+        grid-area: spinner;
+    }
+}

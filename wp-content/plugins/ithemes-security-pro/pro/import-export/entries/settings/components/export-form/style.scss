@@ -1,0 +1,51 @@
+.itsec-export-form.components-card {
+    .components-card__body {
+        padding: 0;
+    }
+
+    .itsec-export-form__include-all {
+        .components-base-control__field {
+            margin-bottom: 0;
+        }
+    }
+
+    .itsec-export-form__name {
+        .components-base-control__field {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .components-base-control__label {
+            white-space: nowrap;
+            margin-bottom: 0;
+            margin-right: 4px;
+        }
+    }
+}
+
+.itsec-export-form__sources.itsec-accordion.itsec-accordion--styled {
+    .itsec-accordion__panel--is-expanded {
+        padding: 0;
+
+        .itsec-export-form__include-source {
+            padding: 1rem calc(32px + .25rem);
+
+            .components-base-control__field {
+                margin-bottom: 0;
+            }
+        }
+
+        .itsec-export-form__options-form {
+            border-top: 1px solid $border-color;
+            padding: 1rem calc((32px + .25rem) * 2);
+        }
+    }
+}
+
+.itsec-export-form__options-form--settings {
+    & > .field-array > .components-base-control > .components-base-control__field .itsec-components-checkbox-group-control__options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}

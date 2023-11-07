@@ -1,0 +1,40 @@
+{
+  "id": "online-files",
+  "status": "always-active",
+  "type": "recommended",
+  "title": "Online Files",
+  "settings": {
+    "type": "object",
+    "properties": {
+      "valid_wporg_plugins": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "valid": {
+              "type": "boolean"
+            },
+            "checked_at": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "default": {},
+        "readonly": true
+      }
+    }
+  },
+  "removed-settings": [
+    "expire_role",
+    "expire_max"
+  ],
+  "deprecated-settings": [
+    "compare_file_hashes"
+  ],
+  "import-export": {
+    "exclude-settings": [
+      "valid_wporg_plugins"
+    ]
+  }
+}

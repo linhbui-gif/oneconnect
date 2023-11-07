@@ -1,0 +1,236 @@
+{
+  "id": "version-management",
+  "status": "default-active",
+  "type": "site-check",
+  "title": "Version Management",
+  "description": "Protect your site when outdated software is not updated quickly enough.",
+  "help": "Even the strongest security measures will fail if you are running vulnerable software on your website. These settings help protect your site with options to update to new versions automatically or increase user security when the site’s software is outdated.",
+  "settings": {
+    "type": "object",
+    "properties": {
+      "wordpress_automatic_updates": {
+        "type": "boolean",
+        "default": false,
+        "title": "WordPress Updates",
+        "description": "Automatically install the latest WordPress release. This should be enabled unless you actively maintain this site on a daily basis and install the updates manually shortly after they are released."
+      },
+      "plugin_automatic_updates": {
+        "type": "string",
+        "enum": [
+          "none",
+          "custom",
+          "all"
+        ],
+        "enumNames": [
+          "\u200B",
+          "Custom",
+          "All"
+        ],
+        "default": "none",
+        "title": "Plugin Updates",
+        "description": "Automatically install the latest plugin updates. Enabling this setting will disable the WordPress auto-update plugins feature to prevent conflicts."
+      },
+      "theme_automatic_updates": {
+        "type": "string",
+        "enum": [
+          "none",
+          "custom",
+          "all"
+        ],
+        "enumNames": [
+          "\u200B",
+          "Custom",
+          "All"
+        ],
+        "default": "none",
+        "title": "Theme Updates",
+        "description": "Automatically install the latest theme updates. Enabling this setting will disable the WordPress auto-update themes feature to prevent conflicts."
+      },
+      "packages": {
+        "type": "object",
+        "patternProperties": {
+          "^(plugin:[^.\\/]+(?:\\/[^.\\/]+)?\\.php|theme:[\\w-]+)$": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "enabled",
+                  "delay",
+                  "disabled"
+                ],
+                "enumNames": [
+                  "Enabled",
+                  "Delay",
+                  "Disabled"
+                ]
+              },
+              "delay": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 180
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false,
+        "default": [],
+        "readonly": true
+      },
+      "scan_for_old_wordpress_sites": {
+        "type": "boolean",
+        "default": false,
+        "title": "Scan For Old WordPress Sites",
+        "description": "Run a daily scan of the hosting account for old WordPress sites that could allow an attacker to compromise the server."
+      },
+      "update_if_vulnerable": {
+        "type": "boolean",
+        "default": false,
+        "title": "Auto Update If Fixes Vulnerability",
+        "description": "Automatically update a plugin or theme if it fixes a vulnerability that was found by the Site Scanner."
+      },
+      "update_details": {
+        "type": "object",
+        "default": {},
+        "readonly": true
+      },
+      "is_software_outdated": {
+        "type": "boolean",
+        "default": false,
+        "readonly": true
+      },
+      "old_site_details": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "last_scan": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sites": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "version": {
+                  "type": "string"
+                },
+                "is_outdated": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "readonly": true,
+        "default": {
+          "last_scan": 0,
+          "sites": {}
+        }
+      },
+      "first_seen": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "plugin": {
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+              "^[^.\\/]+(?:\\/?[^.\\/]+)\\.php$": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "theme": {
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+              "^[\\w-]+$": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        },
+        "readonly": true,
+        "default": {
+          "plugin": {},
+          "theme": {}
+        }
+      }
+    },
+    "uiSchema": {
+      "ui:sections": [
+        {
+          "title": "WordPress",
+          "fields": [
+            "wordpress_automatic_updates"
+          ]
+        },
+        {
+          "title": "Plugins",
+          "fields": [
+            "plugin_automatic_updates"
+          ]
+        },
+        {
+          "title": "Themes",
+          "fields": [
+            "theme_automatic_updates"
+          ]
+        },
+        {
+          "title": "Protection",
+          "fields": [
+            "strengthen_when_outdated",
+            "scan_for_old_wordpress_sites",
+            "update_if_vulnerable"
+          ]
+        }
+      ]
+    }
+  },
+  "removed-settings": [
+    "email_contacts",
+    "automatic_update_emails",
+    "strengthen_when_outdated"
+  ],
+  "scheduling": {
+    "old-site-scan": {
+      "schedule": "daily",
+      "type": "recurring",
+      "conditional": {
+        "type": "object",
+        "properties": {
+          "scan_for_old_wordpress_sites": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        }
+      }
+    },
+    "outdated-software": {
+      "schedule": "daily",
+      "type": "recurring"
+    }
+  },
+  "import-export": {
+    "exclude-settings": [
+      "update_details",
+      "is_software_outdated",
+      "old_site_details",
+      "first_seen"
+    ]
+  }
+}

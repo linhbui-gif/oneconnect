@@ -1,0 +1,9 @@
+.itsec-import-select-export-choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 250px));
+    grid-gap: 1rem;
+}
+
+.itsec-import-export-dropzone.components-drop-zone {
+    display: block;
+}

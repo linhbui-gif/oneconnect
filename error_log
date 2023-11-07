@@ -1,0 +1,15 @@
+[28-Feb-2023 06:56:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wc_get_template_part() in /home/demossagency/WEBSITES/ONECONNECTZ/wp-content/themes/flatsome/page-cart.php:9
+Stack trace:
+#0 /home/demossagency/WEBSITES/ONECONNECTZ/wp-includes/template-loader.php(106): include()
+#1 /home/demossagency/WEBSITES/ONECONNECTZ/wp-blog-header.php(19): require_once('/home/demossage...')
+#2 /home/demossagency/WEBSITES/ONECONNECTZ/index.php(17): require('/home/demossage...')
+#3 {main}
+  thrown in /home/demossagency/WEBSITES/ONECONNECTZ/wp-content/themes/flatsome/page-cart.php on line 9
+[31-Mar-2023 09:01:13 UTC] Cron reschedule event error for hook: woocommerce_tracker_send_event, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"daily","args":[],"interval":86400}
+[29-Apr-2023 08:46:51 UTC] WordPress database error Unknown column 'is_public' in 'where clause' for query SELECT COUNT(*) as `cnt` FROM `ocz_wpjb_job` AS `t1` WHERE  t1.is_active = 1 AND  t1.job_created_at <= '2023-04-29' AND  t1.job_expires_at >= '2023-04-29' AND  is_public = 1 AND  job_created_at >= '2023-05-04' AND  job_created_at <= '2023-05-04'  ORDER BY t1.job_created_at DESC, t1.id DESC made by do_action_ref_array('wpjb_event_expiring_jobs'), WP_Hook->do_action, WP_Hook->apply_filters, wpjb_event_expiring_jobs, wpjb_find_jobs, Wpjb_Model_JobSearch::search, Wpjb_Model_JobSearch::_found, Daq_Db_Query->fetchColumn
+[29-Apr-2023 08:46:51 UTC] PHP Fatal error:  Uncaught Daq_Db_Exception: Unknown column 'is_public' in 'where clause' occured in query: <code>SELECT COUNT(*) as `cnt` FROM `ocz_wpjb_job` AS `t1` WHERE  t1.is_active = 1 AND  t1.job_created_at <= '2023-04-29' AND  t1.job_expires_at >= '2023-04-29' AND  is_public = 1 AND  job_created_at >= '2023-05-04' AND  job_created_at <= '2023-05-04'  ORDER BY t1.job_created_at DESC, t1.id DESC</code> in /home/demossagency/WEBSITES/ONECONNECTZ/wp-content/plugins/wpjobboard/framework/Db/Query.php:396
+Stack trace:
+#0 /home/demossagency/WEBSITES/ONECONNECTZ/wp-content/plugins/wpjobboard/application/libraries/Model/JobSearch.php(60): Daq_Db_Query->fetchColumn()
+#1 /home/demossagency/WEBSITES/ONECONNECTZ/wp-content/plugins/wpjobboard/application/libraries/Model/JobSearch.php(389): Wpjb_Model_JobSearch::_found(Object(Daq_Db_Query), false)
+#2 /home/demossagency/WEBSITES/ONECONNECTZ/wp-content/plugins/wpjobboard/application/functions/functions.php(11): Wpjb_Model_JobSearch::search(Array)
+#3 /home/demossagency/WEBSITES/ONECONNEC in /home/demossagency/WEBSITES/ONECONNECTZ/wp-content/plugins/wpjobboard/framework/Db/Query.php on line 396

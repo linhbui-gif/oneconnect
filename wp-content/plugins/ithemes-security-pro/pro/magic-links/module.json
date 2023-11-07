@@ -1,0 +1,8 @@
+{
+  "id": "magic-links",
+  "status": "default-active",
+  "type": "lockout",
+  "onboard": true,
+  "title": "Magic Links",
+  "description": "The Magic Links bypass lockout option allows you to login while your username or IP is locked out."
+}

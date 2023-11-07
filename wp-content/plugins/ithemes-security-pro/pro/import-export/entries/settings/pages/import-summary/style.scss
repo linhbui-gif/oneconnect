@@ -1,0 +1,46 @@
+.itsec-import-summary-select-data {
+    .components-base-control__field > .components-base-control__label {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: .5rem;
+    }
+
+    .itsec-components-checkbox-group-control__options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .components-base-control.components-checkbox-control {
+        border: 1px solid $light-gray-500;
+        border-radius: 8px;
+        padding: .5rem;
+
+        &.itsec-components-checkbox-group-control__option--is-checked {
+            border-width: 2px;
+            border-color: $main-blue;
+            background-color: $focused-blue;
+            padding: calc(.5rem + -1px);
+        }
+
+        &:not(.itsec-components-checkbox-group-control__option--is-checked) {
+            .components-checkbox-control__input {
+                border-width: 2px;
+                border-color: $main-blue;
+            }
+        }
+    }
+}
+
+.itsec-page--select-export {
+    .itsec-import-export-entity-map {
+        margin-top: 1.5rem;
+    }
+}
+
+.itsec-import-summary-export-details {
+    span {
+        display: block;
+        color: $medium-text;
+    }
+}

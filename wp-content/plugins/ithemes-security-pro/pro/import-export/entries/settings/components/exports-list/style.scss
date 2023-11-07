@@ -1,0 +1,41 @@
+.itsec-exports-list {
+    width: 100%;
+    @include table(.5rem);
+
+    .itsec-exports-table__column-cb {
+        width: 40px;
+        white-space: nowrap;
+
+        @include break-small {
+            width: 36px;
+        }
+    }
+
+    .itsec-exports-table__column-name {
+        width: 20%;
+    }
+
+    .itsec-exports-table__column-date {
+        width: 20%;
+    }
+
+    .itsec-exports-table__column-content {
+        width: auto;
+    }
+
+    .itsec-exports-table__export-cb {
+        .components-base-control__field {
+            margin-bottom: 0;
+        }
+
+        .components-checkbox-control__input-container,
+        .components-checkbox-control__input {
+            margin-right: 0;
+        }
+    }
+
+    .itsec-exports-table__loading-message {
+        font-style: oblique;
+        color: $medium-text;
+    }
+}

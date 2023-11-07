@@ -1,0 +1,7 @@
+{
+  "id": "privilege",
+  "status": "default-inactive",
+  "type": "login",
+  "title": "Privilege Escalation",
+  "description": "Allow administrators to temporarily grant extra access to a user of the site for a specified period of time."
+}

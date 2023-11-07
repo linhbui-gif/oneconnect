@@ -1,0 +1,47 @@
+{
+  "id": "fingerprinting",
+  "status": "default-inactive",
+  "type": "login",
+  "onboard": true,
+  "title": "Trusted Devices (Beta)",
+  "description": "Trusted Devices identifies the devices users use to login and can apply additional restrictions to unknown devices.",
+  "help": "Trusted Devices helps secure your website by requiring all or specific User Groups to confirm the devices they use to log in. Logins using a new device will trigger account restrictions and the Unrecognized Login email to send to the user’s email address. From the email, they can either approve the device or log it out and prevent future access.<br>A successful Session Hijacking attack allows an attacker to piggyback your login session. If a user’s device changes during a session, iThemes Security will automatically log the user out to prevent unauthorized activity on the user’s account, such as changing the user’s email address or uploading malicious plugins.",
+  "user-groups": {
+    "group": {
+      "type": "multiple",
+      "title": "Enable Trusted Devices",
+      "description": "Require users to approve logging in from new devices."
+    }
+  },
+  "settings": {
+    "type": "object",
+    "properties": {
+      "restrict_capabilities": {
+        "type": "boolean",
+        "default": false,
+        "title": "Restrict Capabilities",
+        "description": "When a user is logged-in on an unrecognized device, restrict their administrator-level capabilities and prevent them from editing their login details. Enabling “Restrict Capabilities” requires the “[Unrecognized Login](itsec://settings/notification-center/unrecognized-login)” notification to be enabled."
+      },
+      "session_hijacking_protection": {
+        "type": "boolean",
+        "default": false,
+        "title": "Session Hijacking Protection",
+        "description": "Help protect against session hijacking by verifying that a user’s device does not change during a session."
+      }
+    }
+  },
+  "removed-settings": [
+    "role",
+    "maxmind_lite_key",
+    "maxmind_api_user",
+    "maxmind_api_key",
+    "mapbox_access_token",
+    "mapquest_api_key"
+  ],
+  "scheduling": {
+    "approve-fingerprints": {
+      "type": "recurring",
+      "schedule": "daily"
+    }
+  }
+}

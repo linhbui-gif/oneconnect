@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "metadata",
+    "sources"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "title",
+        "build",
+        "version",
+        "exported_at",
+        "exported_by",
+        "home_url",
+        "abspath"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "build": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "version": {
+          "type": "string"
+        },
+        "exported_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "exported_by": {
+          "$ref": "#/definitions/user"
+        },
+        "home_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "abspath": {
+          "type": "string",
+          "format": "file-path"
+        }
+      }
+    },
+    "sources": {
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "role": {
+      "type": "object",
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

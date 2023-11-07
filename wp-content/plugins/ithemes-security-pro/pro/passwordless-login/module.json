@@ -1,0 +1,143 @@
+{
+  "id": "passwordless-login",
+  "status": "default-inactive",
+  "type": "login",
+  "onboard": true,
+  "title": "Passwordless Login",
+  "description": "Log in without entering a password.",
+  "help": "Passwordless login will send you an email with a magic link that will log you into WordPress with a click of a button.",
+  "user-groups": {
+    "group": {
+      "type": "multiple",
+      "title": "Enable Passwordless Login",
+      "description": "Send an email with a secure link that allows users to login without entering a password.",
+      "default": "all"
+    },
+    "2fa_bypass_group": {
+      "type": "multiple",
+      "title": "Allow Two-Factor Bypass for Passwordless Login",
+      "description": "Add an option to bypass two-factor authentication when using passwordless login in the WordPress user profile.",
+      "conditional": {
+        "active-modules": [
+          "two-factor"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "type": "object",
+    "properties": {
+      "methods": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "magic",
+            "webauthn"
+          ],
+          "enumNames": [
+            "Magic Link",
+            "Passkeys"
+          ]
+        },
+        "default": [
+          "magic",
+          "webauthn"
+        ],
+        "minItems": 1,
+        "uniqueItems": true,
+        "title": "Available Authentication Methods",
+        "description": "iThemes Security supports multiple Passwordless Login methods."
+      },
+      "availability": {
+        "type": "string",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "enumNames": [
+          "Enabled by Default",
+          "Disabled by Default"
+        ],
+        "default": "enabled",
+        "title": "Per-User Availability",
+        "description": "By default, all users selected above will be able to use Passwordless Login. Change to “Disabled” if you prefer to have users opt-in on their individual profiles."
+      },
+      "flow": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "method-first"
+            ],
+            "title": "Method First",
+            "description": "Choose between the traditional and Passwordless Login methods before entering a username or email address."
+          },
+          {
+            "type": "string",
+            "enum": [
+              "username-first"
+            ],
+            "title": "Username First",
+            "description": "Enter the username or email address first before selecting the login method."
+          }
+        ],
+        "default": "method-first",
+        "title": "Passwordless Login Flow"
+      },
+      "integrations": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable"
+            }
+          },
+          "additionalProperties": false
+        },
+        "default": {},
+        "title": "Integrations"
+      }
+    },
+    "uiSchema": {
+      "methods": {
+        "ui:widget": "checkboxes",
+        "ui:enumDescriptions": [
+          "Email users a Magic Link they can use to login with one click.",
+          "Users can login with biometrics like Face ID, Touch ID, Windows Hello or any passkey their device supports."
+        ]
+      },
+      "availability": {
+        "ui:widget": "radio"
+      },
+      "flow": {
+        "ui:widget": "radio"
+      },
+      "integrations": {
+        "ui:expandable": false
+      }
+    }
+  },
+  "conditional-settings": {
+    "methods": {
+      "active-modules": [
+        "webauthn"
+      ]
+    },
+    "2fa_bypass_group": {
+      "active-modules": [
+        "two-factor"
+      ]
+    }
+  },
+  "removed-settings": [
+    "login",
+    "roles",
+    "2fa_bypass",
+    "2fa_bypass_roles"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "user-logging",
+  "status": "default-active",
+  "type": "site-check",
+  "title": "User Logging",
+  "description": "Log user actions such as logging in, saving content and making changes to the site’s software.",
+  "user-groups": {
+    "group": {
+      "type": "multiple",
+      "title": "Activity Monitoring",
+      "description": "Track when a user logs in, saves content, and makes changes to the site’s software.",
+      "default": "administrator"
+    }
+  },
+  "settings": {
+    "type": "object",
+    "properties": {}
+  },
+  "removed-settings": [
+    "role"
+  ]
+}

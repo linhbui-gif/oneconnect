@@ -1,0 +1,777 @@
+{
+  "id": "recaptcha",
+  "status": "default-inactive",
+  "type": "lockout",
+  "onboard": true,
+  "title": "CAPTCHA",
+  "description": "Protect your site from bots by verifying that the person submitting comments or logging in is indeed human.",
+  "help": "CAPTCHA challenges help keep bad bots from engaging in abusive activities on your website, such as attempting to break into your website using compromised passwords, posting spam, or fraudulently triggering password reset requests.<br>Legitimate users will be able to log in, make purchases, view pages, or create accounts. CAPTCHA APIs use advanced risk analysis techniques to tell humans and bots apart.",
+  "keywords": [
+    "recaptcha",
+    "turnstile",
+    "hcaptcha",
+    "cloudflare"
+  ],
+  "settings": {
+    "type": "object",
+    "properties": {
+      "provider": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "google"
+            ],
+            "title": "Google"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "cloudflare"
+            ],
+            "title": "CloudFlare"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "hcaptcha"
+            ],
+            "title": "hCaptcha"
+          }
+        ],
+        "title": "Provider",
+        "description": "Select the CAPTCHA API you’d like to use.",
+        "default": "google"
+      },
+      "type": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "v2"
+            ],
+            "title": "reCAPTCHA v2",
+            "description": "Validate users with the “I’m not a robot” checkbox."
+          },
+          {
+            "type": "string",
+            "enum": [
+              "invisible"
+            ],
+            "title": "Invisible reCAPTCHA",
+            "description": "Validate users in the background."
+          },
+          {
+            "type": "string",
+            "enum": [
+              "v3"
+            ],
+            "title": "reCAPTCHA v3",
+            "description": "Monitor visitors in the background on all pages."
+          }
+        ],
+        "default": "v3",
+        "title": "Type",
+        "description": "Only select the type associated with the generated keys. If you are unsure which type was selected when generating the keys, you should [generate new keys](https://www.google.com/recaptcha/admin). For details about the different types, see [Google’s documentation](https://developers.google.com/recaptcha/docs/versions)."
+      },
+      "site_key": {
+        "type": "string",
+        "default": "",
+        "title": "Site Key",
+        "description": "The generated site key from the [Google reCAPTCHA dashboard](https://www.google.com/recaptcha/admin)."
+      },
+      "secret_key": {
+        "type": "string",
+        "default": "",
+        "title": "Secret Key",
+        "description": "The generated secret key from the [Google reCAPTCHA dashboard](https://www.google.com/recaptcha/admin)."
+      },
+      "cf_site_key": {
+        "type": "string",
+        "default": "",
+        "title": "Site Key",
+        "description": "The generated site key from the [CloudFlare Turnstile dashboard](https://dash.cloudflare.com/?to=/:account/turnstile)."
+      },
+      "cf_secret_key": {
+        "type": "string",
+        "default": "",
+        "title": "Secret Key",
+        "description": "The generated secret key from the [CloudFlare Turnstile dashboard](https://dash.cloudflare.com/?to=/:account/turnstile)."
+      },
+      "hc_site_key": {
+        "type": "string",
+        "default": "",
+        "title": "Site Key",
+        "description": "The generated site key from the [hCaptcha site dashboard](https://dashboard.hcaptcha.com/)."
+      },
+      "hc_secret_key": {
+        "type": "string",
+        "default": "",
+        "title": "Secret Key",
+        "description": "Your account’s secret key from the [hCaptcha account settings](https://dashboard.hcaptcha.com/settings)."
+      },
+      "login": {
+        "type": "boolean",
+        "default": false,
+        "title": "Use on Login"
+      },
+      "register": {
+        "type": "boolean",
+        "default": false,
+        "title": "Use on New User Registration"
+      },
+      "reset_pass": {
+        "type": "boolean",
+        "default": false,
+        "title": "Use on Reset Password"
+      },
+      "comments": {
+        "type": "boolean",
+        "default": false,
+        "title": "Use on Comments"
+      },
+      "v3_include_location": {
+        "type": "string",
+        "enum": [
+          "everywhere",
+          "required"
+        ],
+        "enumNames": [
+          "On All Pages",
+          "Only Required Pages"
+        ],
+        "default": "required",
+        "title": "Include Script",
+        "description": "Specify where the reCAPTCHA script should be loaded. Google recommends including the script on all pages to increase accuracy."
+      },
+      "language": {
+        "type": "string",
+        "enum": [
+          "",
+          "ar",
+          "af",
+          "am",
+          "hy",
+          "az",
+          "eu",
+          "bn",
+          "bg",
+          "ca",
+          "zh-HK",
+          "zh-CN",
+          "zh-TW",
+          "hr",
+          "cs",
+          "da",
+          "nl",
+          "en-GB",
+          "en",
+          "et",
+          "fil",
+          "fi",
+          "fr",
+          "fr-CA",
+          "gl",
+          "ka",
+          "de",
+          "de-AT",
+          "de-CH",
+          "el",
+          "gu",
+          "iw",
+          "hi",
+          "hu",
+          "is",
+          "id",
+          "it",
+          "ja",
+          "kn",
+          "ko",
+          "lo",
+          "lv",
+          "lt",
+          "ms",
+          "ml",
+          "mr",
+          "mn",
+          "no",
+          "fa",
+          "pl",
+          "pt",
+          "pt-BR",
+          "pt-PT",
+          "ro",
+          "ru",
+          "sr",
+          "si",
+          "sk",
+          "sl",
+          "es",
+          "es-419",
+          "sw",
+          "sv",
+          "ta",
+          "te",
+          "th",
+          "tr",
+          "uk",
+          "ur",
+          "vi",
+          "zu"
+        ],
+        "enumNames": [
+          "Detect",
+          "Arabic",
+          "Afrikaans",
+          "Amharic",
+          "Armenian",
+          "Azerbaijani",
+          "Basque",
+          "Bengali",
+          "Bulgarian",
+          "Catalan",
+          "Chinese (Hong Kong)",
+          "Chinese (Simplified)",
+          "Chinese (Traditional)",
+          "Croatian",
+          "Czech",
+          "Danish",
+          "Dutch",
+          "English (UK)",
+          "English (US)",
+          "Estonian",
+          "Filipino",
+          "Finnish",
+          "French",
+          "French (Canadian)",
+          "Galician",
+          "Georgian",
+          "German",
+          "German (Austria)",
+          "German (Switzerland)",
+          "Greek",
+          "Gujarati",
+          "Hebrew",
+          "Hindi",
+          "Hungarain",
+          "Icelandic",
+          "Indonesian",
+          "Italian",
+          "Japanese",
+          "Kannada",
+          "Korean",
+          "Laothian",
+          "Latvian",
+          "Lithuanian",
+          "Malay",
+          "Malayalam",
+          "Marathi",
+          "Mongolian",
+          "Norwegian",
+          "Persian",
+          "Polish",
+          "Portuguese",
+          "Portuguese (Brazil)",
+          "Portuguese (Portugal)",
+          "Romanian",
+          "Russian",
+          "Serbian",
+          "Sinhalese",
+          "Slovak",
+          "Slovenian",
+          "Spanish",
+          "Spanish (Latin America)",
+          "Swahili",
+          "Swedish",
+          "Tamil",
+          "Telugu",
+          "Thai",
+          "Turkish",
+          "Ukrainian",
+          "Urdu",
+          "Vietnamese",
+          "Zulu"
+        ],
+        "default": "",
+        "title": "Force Language",
+        "description": "Force the reCAPTCHA to render in the selected language."
+      },
+      "theme": {
+        "type": "boolean",
+        "default": false,
+        "title": "Use Dark Theme"
+      },
+      "invis_position": {
+        "type": "string",
+        "enum": [
+          "bottomleft",
+          "bottomright"
+        ],
+        "enumNames": [
+          "Bottom Left",
+          "Bottom Right"
+        ],
+        "default": "bottomright",
+        "title": "reCAPTCHA Position"
+      },
+      "cf_theme": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "auto"
+            ],
+            "title": "Use Browser Theme"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "light"
+            ],
+            "title": "Light"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "dark"
+            ],
+            "title": "Dark"
+          }
+        ],
+        "default": "light",
+        "title": "Widget Theme",
+        "description": "Select the Turnstile widget style."
+      },
+      "cf_size": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "normal"
+            ],
+            "title": "Normal"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "compact"
+            ],
+            "title": "Compact"
+          }
+        ],
+        "default": "normal",
+        "title": "Widget Size",
+        "description": "Select the Turnstile widget size."
+      },
+      "hc_theme": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "light"
+            ],
+            "title": "Light"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "dark"
+            ],
+            "title": "Dark"
+          }
+        ],
+        "default": "light",
+        "title": "Widget Theme",
+        "description": "Select the hCaptcha widget style."
+      },
+      "hc_size": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "normal"
+            ],
+            "title": "Normal"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "compact"
+            ],
+            "title": "Compact"
+          }
+        ],
+        "default": "normal",
+        "title": "Widget Size",
+        "description": "Select the hCaptcha widget size."
+      },
+      "gdpr": {
+        "type": "boolean",
+        "default": true,
+        "title": "Enable GDPR Opt-In",
+        "description": "To assist with GDPR compliance, iThemes Security can prompt the user to accept the CAPTCHA provider’s Privacy Policy and Terms of Service before loading the challenge."
+      },
+      "on_page_opt_in": {
+        "type": "boolean",
+        "default": true,
+        "title": "On Page Opt-in",
+        "description": "Allow users to opt-in to CAPTCHA without refreshing the page."
+      },
+      "v3_threshold": {
+        "type": "number",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "default": 0.5,
+        "title": "Block Threshold",
+        "description": "Google reCAPTCHA assigns a score between 0 and 1 describing the legitimacy of the request. A score of 1 is most likely a human, and a score of 0 is most likely a bot. Google recommends using a default value of 0.5 and to adjust the threshold based off the score distribution."
+      },
+      "error_threshold": {
+        "type": "integer",
+        "minimum": 0,
+        "default": 7,
+        "title": "Lockout Error Threshold",
+        "description": "The numbers of failed CAPTCHA entries that will trigger a lockout. Set to zero (0) to record errors without locking out users. This can be useful for troubleshooting content or other errors. The default is 7."
+      },
+      "check_period": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 5,
+        "title": "Lockout Check Period",
+        "description": "How long the plugin will remember a bad CAPTCHA entry and count it towards a lockout."
+      },
+      "validated": {
+        "type": "boolean",
+        "default": false,
+        "readonly": true
+      },
+      "last_error": {
+        "type": "string",
+        "default": "",
+        "readonly": true
+      }
+    },
+    "uiSchema": {
+      "ui:sections": [
+        {
+          "title": "API Keys",
+          "fields": [
+            "type",
+            "site_key",
+            "secret_key",
+            "cf_site_key",
+            "cf_secret_key",
+            "hc_site_key",
+            "hc_secret_key"
+          ]
+        },
+        {
+          "title": "Protected Actions",
+          "fields": [
+            "login",
+            "register",
+            "reset_pass",
+            "comments",
+            "v3_include_location"
+          ]
+        },
+        {
+          "title": "Appearance",
+          "fields": [
+            "language",
+            "theme",
+            "invis_position",
+            "cf_theme",
+            "cf_size",
+            "hc_theme",
+            "hc_size",
+            "gdpr",
+            "on_page_opt_in"
+          ]
+        },
+        {
+          "title": "Lockout",
+          "fields": [
+            "v3_threshold",
+            "error_threshold",
+            "check_period"
+          ]
+        }
+      ]
+    }
+  },
+  "conditional-settings": {
+    "type": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          }
+        }
+      }
+    },
+    "site_key": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          }
+        }
+      }
+    },
+    "secret_key": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          }
+        }
+      }
+    },
+    "v3_threshold": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "v3"
+            ]
+          }
+        }
+      }
+    },
+    "v3_include_location": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "v3"
+            ]
+          }
+        }
+      }
+    },
+    "theme": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          }
+        }
+      }
+    },
+    "invis_position": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "invisible"
+            ]
+          }
+        }
+      }
+    },
+    "language": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "google"
+            ]
+          }
+        }
+      }
+    },
+    "on_page_opt_in": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "gdpr": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        }
+      }
+    },
+    "cf_site_key": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "cloudflare"
+            ]
+          }
+        }
+      }
+    },
+    "cf_secret_key": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "cloudflare"
+            ]
+          }
+        }
+      }
+    },
+    "cf_theme": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "cloudflare"
+            ]
+          }
+        }
+      }
+    },
+    "cf_size": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "cloudflare"
+            ]
+          }
+        }
+      }
+    },
+    "hc_site_key": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "hcaptcha"
+            ]
+          }
+        }
+      }
+    },
+    "hc_secret_key": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "hcaptcha"
+            ]
+          }
+        }
+      }
+    },
+    "hc_theme": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "hcaptcha"
+            ]
+          }
+        }
+      }
+    },
+    "hc_size": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "hcaptcha"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "onboard-settings": [
+    "provider",
+    "type",
+    "site_key",
+    "secret_key",
+    "cf_site_key",
+    "cf_secret_key",
+    "login",
+    "register",
+    "reset_pass",
+    "comments"
+  ],
+  "import-export": {
+    "import-settings": [
+      "provider",
+      "type",
+      "site_key",
+      "secret_key",
+      "cf_site_key",
+      "cf_secret_key"
+    ]
+  }
+}

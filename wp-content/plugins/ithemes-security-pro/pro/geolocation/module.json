@@ -1,0 +1,95 @@
+{
+  "id": "geolocation",
+  "status": "default-inactive",
+  "type": "utility",
+  "title": "Geolocation",
+  "description": "Improve Trusted Devices by connecting to an external location or mapping API.",
+  "settings": {
+    "type": "object",
+    "properties": {
+      "maxmind_lite": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "default": "",
+            "title": "API Key"
+          }
+        },
+        "default": {},
+        "title": "MaxMind GeoLite2",
+        "description": "The MaxMind Lite is a free database provided by MaxMind that allows for Geolocation lookups without connecting to an external API when geolocating IP addresses. [Sign up](https://www.maxmind.com/en/geolite2/signup) for a free MaxMind GeoLite2 account, generate a license key and enter it below."
+      },
+      "maxmind_api": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "default": "",
+            "title": "API User"
+          },
+          "key": {
+            "type": "string",
+            "default": "",
+            "title": "API Key"
+          }
+        },
+        "default": {},
+        "title": "MaxMind API",
+        "description": "For the highest degree of accuracy, sign up for a [MaxMind GeoIP2 Precision: City](https://www.maxmind.com/en/geoip2-precision-city-service) account. Most users should find the lowest credit amount sufficient. The MaxMind API User and API Key can be found in the “Services > My License Key” section of the [account area](https://www.maxmind.com/en/account)."
+      },
+      "mapbox_access_token": {
+        "type": "string",
+        "default": "",
+        "title": "Mapbox API Key",
+        "description": "The MapBox Access Token can be found on the MapBox account page. Either provide the “Default public token” or create a new token with the styles:tiles scope."
+      },
+      "mapquest_api_key": {
+        "type": "string",
+        "default": "",
+        "title": "MapQuest API (Consumer) Key",
+        "description": "The MapQuest API Key can typically be found on the MapQuest Profile Page. If there is no key listed under the “My Keys” section, create a new application by clicking the “Manage Keys” button and then the “Create a New Key” button. Enter the name of your website for the “App Name” and leave the “Callback URL” blank."
+      }
+    },
+    "uiSchema": {
+      "ui:sections": [
+        {
+          "title": "Location",
+          "description": "By default, a number of free GeoIP services are used. We strongly recommend enabling one of the MaxMind APIs for increased accuracy and reliability.",
+          "fields": [
+            "maxmind_lite",
+            "maxmind_api"
+          ]
+        },
+        {
+          "title": "Mapping",
+          "description": "iThemes Security uses static image maps to display the approximate location of an unrecognized login. We recommend using either the [Mapbox](https://www.mapbox.com) or [MapQuest](https://developer.mapquest.com) APIs. The free plan for both services should be sufficient for most users.",
+          "fields": [
+            "mapbox_access_token",
+            "mapquest_api_key"
+          ]
+        }
+      ]
+    }
+  },
+  "scheduling": {
+    "geolocation-refresh": {
+      "type": "recurring",
+      "schedule": "weekly"
+    }
+  },
+  "onboard-settings": [
+    "maxmind_lite",
+    "maxmind_api",
+    "mapbox_access_token",
+    "mapquest_api_key"
+  ],
+  "import-export": {
+    "import-settings": [
+      "maxmind_lite",
+      "maxmind_api",
+      "mapbox_access_token",
+      "mapquest_api_key"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "ithemes-security/passwordless-login-settings",
+  "title": "iThemes Security Passwordless Settings",
+  "category": "widgets",
+  "editorScript": "itsec-passwordless-login-block",
+  "viewScript": "itsec-passwordless-login-front",
+  "editorStyle": "itsec-passwordless-login-block",
+  "style": "itsec-passwordless-login-front"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "user-security-check",
+  "status": "always-active",
+  "type": "site-check",
+  "title": "User Security Check",
+  "description": "Every user on your site affects overall security. See how your users might be affecting your security and take action when needed."
+}

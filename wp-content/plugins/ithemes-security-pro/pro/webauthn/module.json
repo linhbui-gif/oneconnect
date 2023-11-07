@@ -1,0 +1,40 @@
+{
+  "id": "webauthn",
+  "status": "default-inactive",
+  "type": "login",
+  "keywords": [
+    "web authentication",
+    "fido",
+    "u2f",
+    "faceid",
+    "touchid",
+    "webauthn"
+  ],
+  "title": "Passkeys",
+  "description": "Allow users to login with biometrics like Face ID, Touch ID, Windows Hello, WebAuthn or any passkey their device supports. Enable Passwordless Login to check it out.",
+  "requirements": {
+    "ssl": {
+      "validate": "run",
+      "showMessageIfUnmet": true
+    },
+    "multisite": {
+      "validate": "run",
+      "status": "disabled",
+      "showMessageIfUnmet": true
+    },
+    "server": {
+      "validate": "run",
+      "php": "7.3.0",
+      "extensions": [
+        "OpenSSL"
+      ],
+      "showMessageIfUnmet": true
+    }
+  },
+  "scheduling": {
+    "clear-trashed-passkeys": {
+      "type": "recurring",
+      "schedule": "daily"
+    }
+  }
+}
