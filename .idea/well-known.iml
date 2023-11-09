@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/ithemes-security-pro/core" isTestSource="false" packagePrefix="iThemesSecurity" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/ithemes-security-pro/core/lib" isTestSource="false" packagePrefix="iThemesSecurity" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/ithemes-security-pro/pro" isTestSource="false" packagePrefix="iThemesSecurity" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/nextend-facebook-connect" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/ss-job-manager" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/woocommerce/packages/action-scheduler/classes" isTestSource="false" packagePrefix="Action_Scheduler" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/wp-smtp/inc" isTestSource="false" packagePrefix="WPSMTP" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/plugins/wp-smtp/inc/Logger" isTestSource="false" packagePrefix="WPSMTP" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-content/themes/flatsome/inc/builder/core/server/src" isTestSource="false" packagePrefix="UxBuilder" />
+      <sourceFolder url="file://$MODULE_DIR$/wp-includes" isTestSource="false" packagePrefix="PHPMailer" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
