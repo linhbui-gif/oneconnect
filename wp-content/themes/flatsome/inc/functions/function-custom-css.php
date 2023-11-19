@@ -740,7 +740,38 @@ background-color: #71cedf;
 .label-hot.menu-item > a:after{content:"<?php _e('Hot','flatsome'); ?>";}
 .label-sale.menu-item > a:after{content:"<?php _e('Sale','flatsome'); ?>";}
 .label-popular.menu-item > a:after{content:"<?php _e('Popular','flatsome'); ?>";}
-
+.menu-mobile-customize-19112023{
+    display: none;
+}
+@media (max-width: 850px) {
+    .menu-mobile-customize-19112023{
+        display: block;
+        position: fixed;
+        left: 0;
+        width: 250px;
+        background: white;
+        z-index: 999;
+        height: 100%;
+        top: 0;
+        transform: translateX(-100%);
+        transition: .5s;
+    }
+    .menu-mobile-customize-19112023.active{
+        transform: translateX(0%);
+    }
+}
+.overlay-menu-mobile{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000075;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: none;
+}
+.overlay-menu-mobile.active{
+    display:block
 </style>
 
 <?php

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a6fbb677-0489-4ab0-807a-f3432bc5a952" name="oneconnect">
+        <fileTransfer rootFolder="/var/www/html/oneconnectz" accessType="SFTP" host="139.180.155.86" port="22" sshConfigId="24d30e29-fc61-4df8-9936-57e9c0f76339" sshConfig="root@139.180.155.86:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
