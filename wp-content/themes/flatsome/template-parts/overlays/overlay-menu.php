@@ -7,7 +7,8 @@
  */
 
 $flatsome_mobile_overlay         = get_theme_mod( 'mobile_overlay' );
-$flatsome_mobile_sidebar_classes = array( 'mobile-sidebar', 'no-scrollbar', 'mfp-hide' );
+$flatsome_mobile_sidebar_classes = array( 'mobile-sidebar', 'no-scrollbar', 'menu-mobile-customize-19112023' );
+// old code $flatsome_mobile_sidebar_classes = array( 'mobile-sidebar', 'no-scrollbar', 'mfp-hide' );
 $flatsome_nav_classes            = array( 'nav', 'nav-sidebar', 'nav-vertical', 'nav-uppercase' );
 $flatsome_levels                 = 0;
 
