@@ -18,7 +18,7 @@
             data.jobData.job_function = $('.job-function').val();
             data.jobData.job_listing_type = $('.job-type').val();
             data.jobData._job_benefit = $('.job-benefit').val();
-            if(jobInfo && jobInfo.jobId){
+            if(typeof jobInfo !== "undefined" && jobInfo.jobId){
                 data.jobData.jobId = jobInfo.jobId
             }
             $.ajax({
